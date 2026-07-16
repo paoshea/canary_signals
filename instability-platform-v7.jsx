@@ -69,6 +69,7 @@ const CATS=[
    {n:"HY OAS level",th:"Canary >500bps",cur:"~270bps",s:"GREEN",v:1,spark:{seed:21,base:290,vol:.012,drift:-.0006,unit:"bps",thLine:500}},
    {n:"HY OAS 10-day RoC",th:"Canary >100bps/10d",cur:"+11bps off low",s:"GREEN",v:1},
    {n:"Alt-manager equity (KKR -24%, ARES -23%)",th:">3% below seasonal median",cur:"FIRED early — repricing outright (#58/#109)",s:"RED",v:1},
+   {n:"IG credit vs equity relative (#166)",th:"Beta-adj IG excess flat while SPX runs",cur:"Credit declining to confirm since mid-Mar — soft step-4 whisper",s:"AMBER",v:1},
    {n:"Insurer IG underperformance (#139)",th:"Sector worst in IG index",cur:"Worst IG segment early '26",s:"AMBER",v:1},
    {n:"IG OAS / CDX HY",th:"IG >150 · CDX >50bps/5d",cur:"Not verified",s:"GREY",v:0}]},
  {id:3,name:"Market Breadth",group:"D",status:"AMBER",speed:"Daily",
@@ -126,6 +127,7 @@ const CATS=[
    {n:"Hedging existence (#133)",th:"Skew inversion = unhedged market",cur:"Greed premium — puts cheap, unbought",s:"RED",v:1},
    {n:"Retail content vs macro-risk ratio",th:"Rising buy-X : risk content",cur:"Pattern active — '99-'00 analogue",s:"RED",v:1},
    {n:"Retail net-purchase flow (#158)",th:"RoC both directions — dual-listed in Ledger",cur:"78× the 2019 base — ~2× the 2021 peak, still accelerating",s:"RED",v:1},
+   {n:"Composite risk-appetite panel (#170)",th:"GS RAI + components percentile",cur:"CFTC equity pos ~95-100th %ile · safe-bond flows ~0th · only CTA/risk-parity not maxed (fuel for #155)",s:"RED",v:1},
    {n:"Insider sell vs corp buyback (#144)",th:"Divergence: weight the personal account",cur:"Insiders record sellers vs record buybacks",s:"AMBER",v:1},
    {n:"AAII · put/call",th:"Complacency >3.0 · P/C >1.2",cur:"Not verified",s:"GREY",v:0}]},
  {id:9,name:"Inflation & Expectations",group:"C",status:"AMBER",speed:"Monthly",
@@ -364,7 +366,7 @@ function Divergence(){
   <Card accent={T.amber}>
    <Eyebrow color={T.amber}>Group B is transitioning — the moment the framework was built for</Eyebrow>
    <div style={{fontSize:12.5,color:T.ink,lineHeight:1.7,fontFamily:T.body,maxWidth:900}}>
-    The 2006-07 template: A red ~19 months with D green, then B flipped (TED &gt;100bps, Aug '07) and the fastest warning window opened. Today: A red ~20 months, D just upgraded to red (dispersion artifact exposed), and B's <i>private half</i> is already stressed while HY sleeps — B shown as split/amber in the strip below since early '26. <b>The step-4 tripwire: HY OAS 10-day RoC &gt;100bps.</b> Watch it weekly.
+    The 2006-07 template: A red ~19 months with D green, then B flipped (TED &gt;100bps, Aug '07) and the fastest warning window opened. Today: A red ~20 months, D just upgraded to red (dispersion artifact exposed), and B's <i>private half</i> is already stressed while HY sleeps — B shown as split/amber in the strip below since early '26. <b>The step-4 tripwire: HY OAS 10-day RoC &gt;100bps.</b> Watch it weekly — the soft whisper is already visible: beta-adjusted IG has declined to confirm the equity rally since mid-March (#166). Why groups dominate names (#167): market + industry \u2248 74% of any stock\u2019s return (Druckenmiller/NDR) — the group level IS the game.
    </div>
   </Card>
   <Card>
@@ -584,7 +586,7 @@ function Bubble(){
   <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:12}}>
    {[["Reversion distance (#63)","Prior bubbles reverted 63-80%. At ~975, reaching any prior trough requires a larger fall than any prior bubble experienced from its own peak. The outcome distribution is not symmetric.",T.red],
      ["Velocity of ascent (#64)","Cap doubling in 2yrs → 40% crash probability within 2yrs, rising with speed. Disruptors survived the '22 halving then tripled — each recovery lengthens the ultimate reversion.",T.amber],
-     ["How this layer is used (#63)","It calibrates urgency, not timing. Canary weights scale with bubble percentile: the same Group-B flip is worth 2-3× the de-risking response at the 99th percentile vs the 50th.",T.purple],["Liquidity-adjusted (#151)","SPY/M2 at 32.82 — highest ever, above the 2000 peak: prices outrunning even the record M2 reacceleration (#9). Answers the liquidity-justifies-valuations rebuttal with the liquidity-deflated series itself at an all-time extreme.",T.cyan],["Ex-post ERP at generational extremes (#165)","10-yr realized equity-over-bond outperformance ~15%/yr — exceeded only by the 1950s, rhyming with 1929 and 2000. Reversion fuel in the stock-bond PAIR: prior peaks each preceded a decade of bond outperformance or equity stagnation. The mirror of #129.",T.green]].map(([t,d,c],i)=>(
+     ["How this layer is used (#63)","It calibrates urgency, not timing. Canary weights scale with bubble percentile: the same Group-B flip is worth 2-3× the de-risking response at the 99th percentile vs the 50th.",T.purple],["Liquidity-adjusted (#151)","SPY/M2 at 32.82 — highest ever, above the 2000 peak: prices outrunning even the record M2 reacceleration (#9). Answers the liquidity-justifies-valuations rebuttal with the liquidity-deflated series itself at an all-time extreme.",T.cyan],["Ex-post ERP at generational extremes (#165)","10-yr realized equity-over-bond outperformance ~15%/yr — exceeded only by the 1950s, rhyming with 1929 and 2000. Reversion fuel in the stock-bond PAIR: prior peaks each preceded a decade of bond outperformance or equity stagnation. The mirror of #129.",T.green],["Railroad precedent (#169)","1881: railroads 63% of US market cap; AI Big 10 now ~40% and climbing. The rhyme isn\u2019t the crash — it\u2019s the decades-long bleed after: the technology won, early shareholders paid (#42/#63). Resolution can be grind, not only event.",T.amber]].map(([t,d,c],i)=>(
     <Card key={i} accent={c}><div style={{fontSize:12,fontWeight:700,fontFamily:T.sans,color:T.ink,marginBottom:6}}>{t}</div>
      <div style={{fontSize:11,color:T.ink2,lineHeight:1.6,fontFamily:T.body}}>{d}</div></Card>))}
   </div></div>);}
@@ -692,6 +694,7 @@ function Structure(){
      {[["Volume collapse into expiry","Pinning confirmation",T.ink2],
        ["Options-to-stock volume spike","Derivatives-driven price action",T.ink2],
        ["Day-2/3 volume acceleration","Conviction joining (2022 legs)",T.ink2],
+       ["Holding-period collapse (#168)","NYSE avg ~7yrs (1960s) → <1yr — the ownership base is renters, not owners; why mechanical flows dominate the margin",T.ink2],
        ["Dark-pool share rising into OpEx (Mag-7)","Institutional distribution using the mechanical bid as cover — FINRA ATS, free, lagged",T.amber]].map(([l,d,c],i)=>(
       <div key={i} style={{display:"flex",gap:10,padding:"6px 0",borderBottom:`1px solid ${T.border}`}}>
        <span style={{fontSize:10.5,color:T.ink,fontFamily:T.body,fontWeight:600,minWidth:170}}>{l}</span>
@@ -995,8 +998,93 @@ function Execution(){
  </div>);}
 
 
+// ── PAGE: MASTER SIGNAL VIEW — RORO-style percentile strip (all signals) ─────
+const RORO=[
+ {g:"GROUP A — LEVERAGE",rows:[
+  ["Margin debt YoY (#8)",97,95,88],["Margin debt / GDP (#8)",96,95,93],
+  ["Net investor credit balance (#153)",98,96,90],["3× long index ETF AUM (#162)",99,94,85],
+  ["Single-stock leveraged ETFs (#20)",88,84,78],["Sector-concentrated private credit (#22)",92,91,89]]},
+ {g:"GROUP B — CREDIT & LIQUIDITY (SPLIT)",rows:[
+  ["HY OAS level (#7)",12,10,9],["HY OAS 10-day RoC — step-4 tripwire",18,12,10],
+  ["IG vs equity relative (#166)",62,48,35],["True private-credit defaults (#135)",96,93,86],
+  ["PIK share / bad PIKs (#136)",94,92,88],["Gating & redemption events (#137)",97,97,60],
+  ["Bank NDFI exposure (#138)",85,82,75],["Insurer PC channel (#139)",80,74,66],
+  ["Alt-manager equity signal (#58)",90,85,55]]},
+ {g:"GROUP C — RATES & INFLATION",rows:[
+  ["30Y level / bear steepener (#121)",87,81,68],["10Y real yield (#154)",90,82,70],
+  ["M2 re-acceleration RoC (#9)",93,85,60],["Term premium component (#28)",82,78,70],
+  ["Interest expense T12M (#154)",97,95,92],["Debt vs demographics (#163)",95,94,94]]},
+ {g:"GROUP D — VOL, BREADTH & DISPERSION",rows:[
+  ["VIX complacency (inverted) (#11)",75,70,60],["VXN−VIX spread (#110)",90,85,70],
+  ["VIXEQ−VIX dispersion (#114)",99,95,85],["Skew inversion / greed premium (#133)",100,97,80],
+  ["Convergence-VIX gap (#118)",96,92,80],["% >200dMA breadth (#12)",38,45,42],
+  ["Semis index weight (#159)",100,98,95],["SOX × high-beta correlation (#161)",99,96,85],
+  ["Mag-7 concentration (#23)",97,96,94]]},
+ {g:"POSITIONING & RETAIL",rows:[
+  ["Robinhood net-purchase flow (#158)",99,95,75],["CFTC equity positioning (#170)",97,93,80],
+  ["Retail content ratio (#57)",92,90,82],["JP retail USD short (#157)",93,88,70],
+  ["Household equity allocation (#130)",98,97,95],["Sideline-cash depletion (#132)",96,95,93],
+  ["Trend-alignment crowding (#155)",92,85,70]]},
+ {g:"AI STRUCTURE & FLOWS",rows:[
+  ["Circular RPO concentration (#42)",95,94,90],["SDLLMTK demand decline (#48)",78,60,40],
+  ["AI-capex 2nd derivative (#152)",85,70,50],["Buyback announce-execute gap (#149)",90,75,55],
+  ["Distance-to-cascade proximity (#146)",80,72,60],["All-assets-above-trend (#148)",88,85,75]]},
+ {g:"CONTRADICTORY LEDGER — BULL EVIDENCE (low = bull intact)",bull:true,rows:[
+  ["Upward-revision regime stress (#143)",20,25,40],["Absorption-test stress (#142)",30,50,55],
+  ["Executed buyback support fading (#141/#149)",45,35,30],["Retail flow exhaustion (#158 bull side)",15,20,45]]},
+];
+function MasterView(){
+ const zone=v=>v>=85?T.red:v>=60?T.amber:T.green;
+ const Row=({n,c,m1,m3,avg})=>(
+  <div style={{display:"flex",alignItems:"center",gap:10,padding:avg?"7px 0":"4px 0",borderBottom:`1px solid ${avg?T.border2:T.border}`,background:avg?T.panel2:"none"}}>
+   <div style={{width:270,flexShrink:0,fontSize:avg?11:10.5,fontFamily:avg?T.sans:T.body,fontWeight:avg?700:400,color:avg?T.ink:T.ink2,textAlign:"right",paddingRight:6,lineHeight:1.25}}>{n}</div>
+   <div style={{flex:1,position:"relative",height:avg?20:16}}>
+    {/* track */}
+    <div style={{position:"absolute",left:0,right:0,top:"50%",height:1,background:T.border2}}/>
+    {[25,50,75].map(x=><div key={x} style={{position:"absolute",left:x+"%",top:2,bottom:2,width:1,background:T.border}}/>)}
+    <div style={{position:"absolute",left:"85%",right:0,top:0,bottom:0,background:T.red+"12"}}/>
+    {/* -3m navy, -1m orange, current light-blue */}
+    <div title={"-3m: "+m3} style={{position:"absolute",left:`calc(${m3}% - 4px)`,top:"50%",transform:"translateY(-50%) rotate(45deg)",width:7,height:7,background:"#33506e"}}/>
+    <div title={"-1m: "+m1} style={{position:"absolute",left:`calc(${m1}% - 4px)`,top:"50%",transform:"translateY(-50%) rotate(45deg)",width:7,height:7,background:T.amber}}/>
+    <div title={"now: "+c} style={{position:"absolute",left:`calc(${c}% - 5px)`,top:"50%",transform:"translateY(-50%) rotate(45deg)",width:avg?11:9,height:avg?11:9,background:zone(c),boxShadow:`0 0 6px ${zone(c)}88`,border:`1px solid ${T.bg}`}}/>
+   </div>
+   <div style={{width:34,flexShrink:0,fontSize:10.5,fontFamily:T.mono,fontWeight:700,color:zone(c)}}>{c}</div>
+  </div>);
+ return(<div style={{display:"flex",flexDirection:"column",gap:14}}>
+  <Card accent={T.cyan}>
+   <div style={{display:"flex",justifyContent:"space-between",flexWrap:"wrap",gap:10}}>
+    <div style={{fontSize:12.5,color:T.ink,lineHeight:1.65,fontFamily:T.body,maxWidth:640}}>
+     Every major signal placed on its <b>own historical extremity percentile</b> (0 = calmest vs own history · 100 = most extreme), with 3-month drift. No composite is computed across groups (#4) — the <i>clustering</i> is the message: how many dots sit in the red zone, and which direction the orange→blue drift points. Mock percentiles, calibrated to the reported readings.
+    </div>
+    <div style={{fontSize:10,fontFamily:T.mono,color:T.ink2,lineHeight:2}}>
+     <span style={{display:"inline-block",width:8,height:8,background:"#33506e",transform:"rotate(45deg)",marginRight:6}}/>3m ago&nbsp;&nbsp;
+     <span style={{display:"inline-block",width:8,height:8,background:T.amber,transform:"rotate(45deg)",marginRight:6}}/>1m ago&nbsp;&nbsp;
+     <span style={{display:"inline-block",width:9,height:9,background:T.blue,transform:"rotate(45deg)",marginRight:6}}/>current (colored by zone)
+     <br/><span style={{color:T.ink3}}>CALM ◄──────────────────────► EXTREME · red zone ≥85th percentile</span>
+    </div>
+   </div>
+  </Card>
+  {RORO.map((sec,si)=>{
+   const avg=Math.round(sec.rows.reduce((s,r)=>s+r[1],0)/sec.rows.length);
+   const a1=Math.round(sec.rows.reduce((s,r)=>s+r[2],0)/sec.rows.length);
+   const a3=Math.round(sec.rows.reduce((s,r)=>s+r[3],0)/sec.rows.length);
+   return(
+   <Card key={si} style={{padding:"10px 16px"}} accent={sec.bull?T.green:undefined}>
+    <div style={{fontSize:10,fontFamily:T.mono,letterSpacing:".1em",color:sec.bull?T.green:T.ink3,margin:"2px 0 6px"}}>{sec.g}</div>
+    <Row n={"— GROUP AVERAGE —"} c={avg} m1={a1} m3={a3} avg={true}/>
+    {sec.rows.map((r,ri)=><Row key={ri} n={r[0]} c={r[1]} m1={r[2]} m3={r[3]}/>)}
+   </Card>);})}
+  <Card>
+   <div style={{fontSize:11,color:T.ink2,fontFamily:T.body,lineHeight:1.65}}>
+    <b style={{color:T.ink}}>How to read the drift.</b> Nearly every bear-side section shows the same signature: navy → orange → blue marching right. The two exceptions are the point: Group B public rows (HY) still pinned left while B's private rows sit deep in the red zone — the split rendered spatially — and the Bull Ledger section drifting <i>right</i> means the contradictory evidence is weakening (revision stress rising, execution gap widening). When the bull section's average crosses ~60 while Group B public rows start moving right, that is the whole framework's endgame configuration on one screen.
+   </div>
+  </Card>
+ </div>);}
+
+
 const NAV=[
  {id:"overview",l:"Overview",i:"◈"},
+ {id:"master",l:"Master Signal View",i:"⇶"},
  {id:"volcomplex",l:"Vol Complex",i:"≋"},
  {id:"ledger",l:"Contradictory Ledger",i:"⚖"},
  {id:"divergence",l:"Divergence Engine",i:"≷"},
@@ -1012,6 +1100,7 @@ const NAV=[
  {id:"calendar",l:"Watch Calendar",i:"◷"}];
 const SUBTITLES={
  overview:"145-idea framework · Group B split · D upgraded red · sequence 3 of 4",
+ master:"RORO percentile strip — every signal on its own extremity axis · 3-month drift · no composite (#4)",
  volcomplex:"The quartet: VXN−VIX · VIXEQ−VIX · Convergence VIX · skew inversion (#110/114/118/133)",
  ledger:"Bull and bear evidence at full weight · falsifiable statement · invalidation criteria (#141-145)",
  divergence:"31-month history · gap closing from the wrong side · resolution patterns (#3)",
@@ -1030,12 +1119,12 @@ export default function App(){
  const[page,setPage]=useState("overview");
  const all=CATS.flatMap(c=>c.rows);
  const red=all.filter(r=>r.s==="RED"&&r.v).length;
- const PAGES={overview:<Overview go={setPage}/>,volcomplex:<VolComplex/>,ledger:<Ledger/>,divergence:<Divergence/>,canary:<Canary/>,execution:<Execution/>,bubble:<Bubble/>,macro:<Macro/>,structure:<Structure/>,conviction:<Conviction/>,correlations:<Correlations/>,cases:<Cases/>,research:<Research/>,calendar:<Calendar/>};
+ const PAGES={overview:<Overview go={setPage}/>,master:<MasterView/>,volcomplex:<VolComplex/>,ledger:<Ledger/>,divergence:<Divergence/>,canary:<Canary/>,execution:<Execution/>,bubble:<Bubble/>,macro:<Macro/>,structure:<Structure/>,conviction:<Conviction/>,correlations:<Correlations/>,cases:<Cases/>,research:<Research/>,calendar:<Calendar/>};
  return(<div style={{display:"flex",height:"100vh",background:T.bg,color:T.ink,fontFamily:T.body,overflow:"hidden"}}>
   <div style={{width:216,flexShrink:0,background:T.panel,borderRight:`1px solid ${T.border}`,display:"flex",flexDirection:"column"}}>
    <div style={{padding:"18px 16px 14px",borderBottom:`1px solid ${T.border}`}}>
     <div style={{fontSize:14.5,fontWeight:700,fontFamily:T.sans,color:T.ink}}>INSTABILITY</div>
-    <div style={{fontSize:9,color:T.ink3,fontFamily:T.mono,letterSpacing:".12em"}}>WATCH · v7.4 · FABLE · 15 JUL 26</div>
+    <div style={{fontSize:9,color:T.ink3,fontFamily:T.mono,letterSpacing:".12em"}}>WATCH · v8 · FABLE · 15 JUL 26</div>
     <div style={{marginTop:9,display:"flex",gap:5,flexWrap:"wrap"}}>
      <span style={{fontSize:8.5,background:T.redDim,border:`1px solid ${T.red}`,color:T.red,borderRadius:3,padding:"2px 6px",fontFamily:T.mono,fontWeight:700}}>{red} RED</span>
      <span style={{fontSize:8.5,background:T.amberDim,border:`1px solid ${T.amber}`,color:T.amber,borderRadius:3,padding:"2px 6px",fontFamily:T.mono,fontWeight:700}}>B SPLIT</span>
@@ -1048,7 +1137,7 @@ export default function App(){
       <span style={{fontSize:13,color:page===n.id?T.blue:T.ink3}}>{n.i}</span>{n.l}</button>))}
    </nav>
    <div style={{padding:"10px 14px",borderTop:`1px solid ${T.border}`,fontSize:9,color:T.ink3,fontFamily:T.mono,lineHeight:1.6}}>
-    ~145 of 165 master ideas<br/>portrayed · mock data,<br/>calibrated to reported values.<br/>Not investment advice.
+    ~150 of 170 ideas · RORO view<br/>portrayed · mock data,<br/>calibrated to reported values.<br/>Not investment advice.
    </div>
   </div>
   <div style={{flex:1,display:"flex",flexDirection:"column",overflow:"hidden"}}>
