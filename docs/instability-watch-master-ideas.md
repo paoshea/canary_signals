@@ -1,6 +1,6 @@
 # Instability Watch — Master Ideas Document
 
-**Compiled:** 6 July 2026 · **Revised:** 12 July 2026 (Parts XVI–XVIII added — July exhibits #109–134; scour escalations & contradictory evidence #135–145; execution layer #146–148)
+**Compiled:** 6 July 2026 · **Revised:** 12 July 2026 (Parts XVI–XXI: #109–134 · #135–145 scour & contradictions · #146–148 execution · #149–156 · #157–161 · #162–165 leverage-mechanics & deep context)
 **Scope:** Every analytical idea, indicator, metric, mechanism, data source, and research reference developed across the full working session, with a value and applicability comment on each.
 **Status convention:** Value = analytical worth of the idea. Applicability = how readily it can be implemented today (data availability, cost, frequency).
 
@@ -524,6 +524,75 @@ When the 10-month and 12-month signals disagree on an asset class, the faster is
 
 ### 148. All-assets-above-trend breadth
 Count of Ivy asset classes above trend as a melt-up marker: 4/5 on the 10-month (5/5 on the 12-month) with bonds marginal and international more extended than the US — everything-up-except-bonds is one macro trade expressed across asset classes, historically clustering late in cycles. **Value:** medium. **Applicability:** immediate.
+
+---
+
+## Part XIX — The Fiscal, Flow & Reflexivity Batch (#149–156, added 14 July 2026)
+
+Ten exhibits; eight new signals — the first of which qualifies the Contradictory Ledger's strongest bull pillar, logged with the same weight standard applied in both directions.
+
+### 149. Announced-vs-executed buyback gap — the #141 qualification
+Wilshire 5000 buyback *announcements* pro-rate to a record >$2T for 2026 while *executions* pro-rate to only ~$600-650B — a record spread. Announcements are free signaling; executions are cash. A record gap means the corporate bid is partly rhetorical: announce to defend the stock, conserve the cash because management is privately cautious — itself a late-cycle behavior. **#141 is hereby downgraded from "record demand pillar" to "record *promised* demand, delivery lagging"**; the executed series is the one that counts against demand exhaustion, and the gap's direction becomes the canary. **Value:** very high — it audits our own counter-evidence. **Applicability:** immediate; Bloomberg/S&P quarterly.
+
+### 150. HELOC balance rate-of-change
+Balances +11% YoY (~$440B), the sharpest acceleration since the pre-GFC era off the 2022 trough. The level framing ("worse than 2007") overstates — the 2009 peak was $718B — but the RoC is the signal per #1: consumers monetizing home equity at accelerating pace is the *collateral-extraction* leg of the consumer-stress cluster (#72 delinquencies, #74 distress searches). **Value:** high. **Applicability:** immediate; NY Fed quarterly, free.
+
+### 151. SPY/M2 — liquidity-adjusted valuation
+At 32.82, the highest ever, above the 2000 peak: equities at a record even relative to the money supply — prices outrunning the record M2 reacceleration (#9). Answers the "liquidity justifies valuations" rebuttal with the liquidity-deflated valuation at an all-time extreme. **Value:** high — a clean Layer-2 addition. **Applicability:** immediate; one division, monthly, free.
+
+### 152. AI-capex second derivative — the Soros stage clock
+Boom-bust template: prices peak when EPS/capex *growth decelerates*, not when it peaks — and GS forecasts AI capex growth decelerating 80% → 22% next year. This is the mechanism by which #143 (upward-revision regime) breaks *without earnings ever falling*: estimates keep rising at a decelerating rate and reflexive prices crack on the second derivative. 2027 capex guidance is set during Aug-Oct 2026 earnings — converging with #43, #128 and the blackout calendar into a single adjudication window. Honest self-location on the stage taxonomy: stage 5-6 (flaw publicly recognized, prices holding). **Value:** very high, dateable. **Applicability:** immediate; guidance language each earnings season.
+
+### 153. Net investor credit balance (two-sided)
+Free credit cash + credit balances − margin debt = **−$991.7B**, several times the tech-bubble (~−$130B) and June-2007 extremes. Superior to raw margin debt (#8): it nets the cash cushion and measures leverage *after* dry powder. Caveat: scale by market cap alongside raw dollars. Two-sided instrument — the balance flipped *positive* at the Sept-2001 and Aug-2008 lows, so it doubles as a capitulation marker. **Value:** high. **Applicability:** immediate; FINRA monthly, free.
+
+### 154. Fiscal-dominance metrics (Layer 1)
+Interest expense $1.35T trailing-12-months, on pace to surpass Social Security as the largest budget line; 10Y real yield at 2.35%, a 2-year high — "markets are the ultimate judge of fiscal discipline." Structural pressure toward financial repression underwrites the positive stock-bond correlation regime (#129) and the commodity thesis (#131); the real-vs-breakeven split also refines the steepener classifier (#121): real-rate-led is the variant most hostile to long-duration equities. **Value:** medium-high as context. **Applicability:** immediate; Treasury.gov/FRED, free.
+
+### 155. Trend-alignment crowding
+Systematic positions correlate +0.49 with 20-day trend vs +0.21 historical average, with every tracked equity market (JP/EU/UK/US/CA/AU) simultaneously long an uptrend. The positioning fuel for #146's distance-to-cascade: when the −7-9% flip arrives, the trend complex is stacked on one side and the mechanical selling is synchronized. Country-level unanimity extends #148's breadth logic. **Value:** high. **Applicability:** good; CTA-positioning proxies (Prometheus/SG CTA index).
+
+### 156. Core-periphery valuation spread (dual-use)
+KOSPI at ~6x forward earnings — labeled cheapest on record — against US ~22.5x: the valuation sequel to #134's peripheral crash. Dual-read per #24: contagion gauge now, contrarian rotation signal eventually. Caveat: price-to-*estimated* earnings on memory-cycle profits near their peak — if semis roll (#117), the E deflates and part of the cheapness is illusory. Minor adjacent note from the same batch: reach-for-yield content has spread to peripheral European duration (Greek 10Y scenario marketing — the #124 genre, new geography); Greece-Bund spread logged as a grey euro-stress row. **Value:** medium-high. **Applicability:** immediate.
+
+---
+
+## Part XX — Retail Flow, Concentration & Factor-Lens Batch (#157–161, added 15 July 2026)
+
+Six exhibits; five signals plus one evidence-filing (the 64-year FRED 10Y chart is filed under #116 as empirical support — today's ~4.3% is near the pre-2008 *median*; only the 2009-21 anomaly makes it look high). One partial rejection logged per #60 discipline.
+
+### 157. Funding-currency retail positioning extreme
+Japanese retail traders net short ~¥3T of USD — the largest bearish dollar position since the GFC (FFAJ data). Dual read, both pointing the same way: contrarian (record retail FX extremes have a poor hit rate → dollar-rally squeeze fuel) and structural (de-dollarization reaching the household level — #7's central-bank gold behavior at retail scale). Carry-mechanics note: retail long JPY means an Aug-2024-style yen shock has *less* squeeze fuel this cycle; a dollar rally has more — the asymmetry has flipped sides. **Value:** medium-high. **Applicability:** immediate; FFAJ monthly, free.
+
+### 158. Retail net-purchase flow index (dual-listed)
+Robinhood rolling 21-session net purchases at ~78× the 2019 baseline — roughly double the 2021 meme-mania peak, near-vertical in 2026. Deliberately dual-listed: (a) mania marker completing the retail cluster (#14/#57/#124) at unprecedented intensity; (b) a live *bull-side flow pillar* — demand-exhaustion (#130/#132) measures the stock of allocation, this measures the flow, and the flow hasn't stopped. Stock-vs-flow is the honest distinction; the series mean-reverts (negative through early 2025), so its RoC is the canary in both directions. **Value:** high — enters the Contradictory Ledger on both sides. **Applicability:** immediate; Robinhood/Vanda trackers, weekly.
+
+### 159. Single-industry index weight
+Semiconductors at 19.7% of the S&P 500 — an all-time high, ~2.5× the dot-com peak (~8%), with "everything else" at 80.3%. A different dimension from Mag-7 company concentration (#23): one deeply cyclical *industry* now a fifth of the passive default portfolio; every index buyer is making a leveraged memory/logic-cycle bet unknowingly. Gabaix granularity (#88): idiosyncratic shocks to this cluster are macro shocks now. Pairs dangerously with #161's ownership-quality reading. **Value:** high. **Applicability:** immediate; S&P/Bloomberg weights.
+
+### 160. Gold/SPX relative-strength regime break (core adopted, prophecy rejected)
+The usable core of the "Capital Rotation Era" chart: gold/SPX breaking a multi-decade relative downtrend ("SUPER CRE") is a legitimate hard-asset rotation monitor pairing with #129/#131/#154, with the author's own validity condition adopted — trust the breakout only if accompanied by an equity bear. **Rejected and logged:** the 2036 "retag of the 300-month MA" forecast — three historical instances (1949/1974/2009) is pattern assertion, and MA-touch timing on a log chart is unfalsifiable. **Value:** medium after surgery. **Applicability:** immediate; one ratio, monthly.
+
+### 161. SOX × high-beta factor correlation — the ownership-quality top-marker
+When the 6-month correlation between semiconductors and the high-beta factor exceeds ~0.6, semis are trading as the market's momentum vehicle rather than on their own fundamentals — and the red-box instances marked every major SOX top: 2000, 2004, 2010, 2014, 2017-18, 2021. Current reading **0.79, the highest on record**. Mechanism, not curve-fit: at high factor correlation the marginal holder owns semis as *beta, not businesses* — the ownership base that exits fastest. Factor-lens complement to #21 and #117; computable from SOXX-vs-SPHB returns. **Value:** high — seven-for-seven with a causal story. **Applicability:** immediate, free.
+
+---
+
+## Part XXI — Leverage Mechanics, Depletion & Deep Context Batch (#162–165, added 15 July 2026)
+
+Seven exhibits; four new entries, two evidence filings, one duplicate flagged (the Greek 10Y table — already logged under #156's note). Evidence filings: (a) the Leuthold margin-debt-RoC overlay validates the #8 threshold empirically — the >40% YoY line was crossed at exactly 2000, 2007 and 2021 and nowhere else in 27 years, and its −40% troughs marked the 2002/2009/2022 lows, adding a two-sided capitulation reading consistent with #153; severity of each top was set by what else was red, which is the divergence architecture's whole claim. (b) The 30Y wedge chart's usable nugget — the 3-year MA of the 30Y yield crossing above its 10-year MA for the first time in decades — files as a formalizable secular confirmation rule under #116/#121; the Ichimoku dressing is discarded.
+
+### 162. Leveraged index ETF AUM — the close-auction amplifier
+3× long index ETF AUM at ~$95B, roughly double the 2021 mania peak (~$48B), near-vertical in 2026. Beyond sentiment: daily-reset funds must rebalance pro-cyclically at the close — after a down day they sell more of what fell — so record AUM is the largest end-of-day momentum flow machine ever assembled. The cascade stack gains a fourth layer: NDX short gamma → leveraged-ETF close rebalancing → trend-follower flips at −7-9% (#146) → blackout window with no corporate bid (#141/#149). AUM also decays brutally in chop (vol drag), so record AUM = record faith in an uninterrupted uptrend. **Value:** high. **Applicability:** immediate; Bloomberg AUM, monthly.
+
+### 163. Demographic-debt scissors (Layer 1)
+Global debt $348T against $122T GDP (2.85×) while the under-5 population has been shrinking since ~2017 and the 65+ cohort doubles toward 1.58B by 2050. #36 globalized and made structural: every debt-sustainability model assumes growth the future-workforce curve is quietly canceling. No timing content; the slowest, deepest context row — the regime pressure behind fiscal dominance (#154), repression, and the secular yield thesis (#116). **Value:** medium as signal, high as context. **Applicability:** UN/IIF annual data.
+
+### 164. SPR depletion — the missing shock absorber
+Strategic Petroleum Reserve at ~320M barrels, −20.7% YoY, a 43-year low with the drawdown accelerating (staircase legs April–June 2026). Readings: the national buffer against oil spikes is thinnest since 1983, fattening the energy right tail exactly when #131 says physical scarcity already rules; drawdown-during-fiscal-dominance suggests price suppression by inventory — borrowing from the future the way PIK borrows from the waterfall (#136); eventual refill is a structural bid. Dual-use: energy tail-risk canary and #131 confirmation. **Value:** medium-high. **Applicability:** immediate; EIA weekly, free.
+
+### 165. Ex-post equity risk premium at generational extremes
+Ten-year realized equity-over-bond outperformance ~15% annualized — exceeded only by the 1950s, rhyming with the late 1920s and 1990s. A relative Layer-2 gauge distinct from #127/#151: it measures reversion fuel accumulated in the stock-bond *pair*; prior peaks (1929, 2000, the 1959 bond-bear top) each preceded a decade of bond outperformance or equity stagnation. The mirror of #129: the regime that made bonds useless as hedges made them maximally cheap relative to equities. **Value:** medium-high. **Applicability:** immediate; Shiller data, free.
 
 ---
 

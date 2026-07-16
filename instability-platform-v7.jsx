@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import { LineChart, Line, BarChart, Bar, AreaChart, Area, ComposedChart, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine, Cell } from "recharts";
 
 // ═══════════════════════════════════════════════════════════════════════════
-// INSTABILITY WATCH v7 — full union + Execution Layer (#146-148) — 145-idea framework, mock data throughout
+// INSTABILITY WATCH v7.1 — union + Execution Layer + #149 buyback-gap qualification — 145-idea framework, mock data throughout
 // New in v5: Vol Complex page · Private Credit category · Contradictory Ledger
 // Status updates: Group B split internals · 30Y threshold touch · breadth verified
 // ═══════════════════════════════════════════════════════════════════════════
@@ -44,6 +44,8 @@ const CATS=[
   note:"All four verified rows red. 2007 signature: leverage extreme while credit calm — equivalent of mid-2006. Master ideas #8, #20-22, #25.",
   rows:[
    {n:"Margin debt YoY",th:"Watch >25% · Canary >40%",cur:"+53.7%",s:"RED",v:1,spark:{seed:3,base:22,vol:.012,drift:.011,unit:"%",thLine:40}},
+   {n:"Net investor credit balance (#153)",th:"Two-sided: flipped POSITIVE at Sep'01/Aug'08 lows",cur:"-$991.7B — deepest ever (tech bubble: -$130B)",s:"RED",v:1},
+   {n:"3× long index ETF AUM (#162)",th:"Pro-cyclical close rebalancing — cascade layer 4",cur:"~$95B — 2× the 2021 mania peak",s:"RED",v:1},
    {n:"Margin debt / GDP",th:"Avg 3.0% · Canary >3.5%",cur:"4.1% — ATH",s:"RED",v:1,spark:{seed:5,base:3.1,vol:.004,drift:.0028,unit:"%",thLine:3.5}},
    {n:"Real margin debt vs mkt growth ('97)",th:"Canary >1.3×",cur:"1.54×",s:"RED",v:1},
    {n:"Single-stock leveraged ETF AUM",th:"Rapid AUM in narrow names",cur:"Elevated — SK Hynix 2× ep.",s:"AMBER",v:1},
@@ -74,6 +76,7 @@ const CATS=[
   rows:[
    {n:"% S&P above 200dMA",th:"Canary <40% · velocity >10pp/5d",cur:"61% ($S5TH) — VERIFIED GREEN",s:"GREEN",v:1,spark:{seed:31,base:57,vol:.015,drift:.001,unit:"%",thLine:40}},
    {n:"Sector concentration (Mag-7 share)",th:"Canary top-5 >35% sector cap",cur:"Mag-7 >30% of S&P — extreme",s:"RED",v:1},
+   {n:"Single-industry weight — semis (#159)",th:"vs ~8% dot-com peak",cur:"19.7% of S&P — all-time high; 'everything else' 80.3%",s:"RED",v:1},
    {n:"Loser-decile composition (#109)",th:"Sector clustering in worst decile",cur:"~20 of 52 = software/IT, -25 to -59%",s:"RED",v:1},
    {n:"Old/New Era rotation (#115/#120)",th:"Liquidation = both falling",cur:"ROTATION quadrant — benign so far",s:"GREEN",v:1},
    {n:"Meme reactivation (price/volume)",th:">15% on <$5M volume",cur:"Wendy's +26% on $2.2M",s:"AMBER",v:1},
@@ -112,6 +115,7 @@ const CATS=[
    {n:"Oil curve regime (#131)",th:"Backwardation = scarcity carry",cur:"5yrs backwardation · roll +222% vs spot +0.6%",s:"AMBER",v:1},
    {n:"Gold regime flag",th:"Above 200dMA + rising = fear mode",cur:"At 200dMA — transition",s:"AMBER",v:1},
    {n:"Central bank gold buying",th:"Sustained = de-dollarisation",cur:"Elevated since 2022",s:"AMBER",v:1},
+   {n:"JP retail USD short (#157)",th:"Record retail FX extremes = squeeze fuel",cur:"~¥3T net short — largest since GFC; carry asymmetry flipped",s:"AMBER",v:1},
    {n:"Retail duration flows (#124)",th:"Heavy buying into rising secular yields",cur:"TLT/BLV retail bid vs secular turn",s:"AMBER",v:1},
    {n:"USD/JPY carry · DXY stress",th:"JPY +5%/10d",cur:"Not verified",s:"GREY",v:0}]},
  {id:8,name:"Positioning & Sentiment",group:"D",status:"RED",speed:"Weekly",
@@ -121,6 +125,7 @@ const CATS=[
    {n:"Dealer gamma — SPX/singles",th:"Long gamma = dampening",cur:"LONG — crowded vol-selling",s:"AMBER",v:1},
    {n:"Hedging existence (#133)",th:"Skew inversion = unhedged market",cur:"Greed premium — puts cheap, unbought",s:"RED",v:1},
    {n:"Retail content vs macro-risk ratio",th:"Rising buy-X : risk content",cur:"Pattern active — '99-'00 analogue",s:"RED",v:1},
+   {n:"Retail net-purchase flow (#158)",th:"RoC both directions — dual-listed in Ledger",cur:"78× the 2019 base — ~2× the 2021 peak, still accelerating",s:"RED",v:1},
    {n:"Insider sell vs corp buyback (#144)",th:"Divergence: weight the personal account",cur:"Insiders record sellers vs record buybacks",s:"AMBER",v:1},
    {n:"AAII · put/call",th:"Complacency >3.0 · P/C >1.2",cur:"Not verified",s:"GREY",v:0}]},
  {id:9,name:"Inflation & Expectations",group:"C",status:"AMBER",speed:"Monthly",
@@ -314,7 +319,8 @@ function VolComplex(){
 function Ledger(){
  const rows=[
   {side:"BULL",n:"Upward revision regime (#143)",w:"Very high",d:"2026 EPS growth revised 16%→25% during the year; Q1 delivered above every cautious forecast. The #128 bear trigger is INVERTED. The benign P/E-gap-closing path (1996-98 outcome) is the one operating.",kill:"Flips when revision breadth turns negative at record gap wides."},
-  {side:"BULL",n:"Buyback breadth (#141)",w:"Very high",d:"> $1T annualised and broadening: daily active programs 10→50-60, industrials joining, funded by +12.8% profits (mfg +31%). The one buyer that never panics — the demand pillar the exhaustion thesis missed.",kill:"Pauses in blackout windows; breaks on profit rollover or credit-funded-buyback stress."},
+  {side:"BULL",n:"Buyback breadth (#141)",w:"High — downgraded by #149",d:"> $1T annualised and broadening: ANNOUNCED >$2T but EXECUTED ~$620B pro-rata — record gap (#149). Daily active programs 10→50-60, industrials joining, funded by +12.8% profits (mfg +31%). The one buyer that never panics — the demand pillar the exhaustion thesis missed.",kill:"Pauses in blackout windows; breaks on profit rollover or credit-funded-buyback stress."},
+  {side:"BULL",n:"Retail flow still accelerating (#158)",w:"High",d:"Robinhood net purchases at 78× the 2019 base — double the 2021 mania peak. Demand-exhaustion (#130/#132) measures allocation stock; this is the FLOW, and it has not stopped. Dual-listed: the same series is a mania marker on the bear page.",kill:"Flow RoC turning negative — the series went negative through early 2025, so reversal is observable within weeks."},
   {side:"BULL",n:"Absorption test passed (#142)",w:"High",d:"June's $140B of equity supply (largest back-to-back raises in US history) absorbed without disruption, buybacks as structural bid. Direct negative result on the fire-hose-becomes-vacuum thesis at current flow rates.",kill:"Retest at each fast-entry inclusion; fails if a mega-IPO trades heavy despite index buying."},
   {side:"BULL",n:"Recession odds low / banks robust",w:"Medium",d:"OFR: median PC fund net leverage ~1.0; Fed stress test shows banks absorb severe nonbank stress; closed-end lockups ≠ runnable deposits; PC CLOs only ~3% of assets — 2008 chains absent at scale.",kill:"NDFI loss rates rising in bank disclosures (#138) would invalidate."},
   {side:"BEAR",n:"Private credit stress observed (#135-137)",w:"Very high",d:"True defaults 5.8% (highest ever), 60% PIK-concealed, 40% borrowers negative-FCF, gatings FIRED (BCRED/CTAC/Blue Owl). Not forecast — observed. Sequence at step 3 of 4.",kill:"Would fade if defaults roll over and gates reopen at full redemption."},
@@ -453,6 +459,10 @@ function Correlations(){
   {n:"Guidance Language NLP (RoC)",dom:"Earnings Quality",lead:"2-3 qtrs",cost:"Free",s:"RED",m:"Hedging phrases accelerating while results still good — now DIVERGING from upward revisions (#143): known resolution direction."},
   {n:"VC Down-Round Frequency",dom:"Private Mkts",lead:"6-18 mo",cost:"PitchBook",s:"RED",m:"Loaded further by tranched-round opacity masking true marks."},
   {n:"AQR Factor Health (QMJ/BAB/TSMOM)",dom:"Factor Regime",lead:"1-3 mo",cost:"Free (AQR)",s:"AMBER",m:"3+ factors in bottom decile = crowded unwind in progress. QMJ compressing = late-cycle."},
+  {n:"SOX × high-beta correlation (#161)",dom:"Factor Regime",lead:"0-6 mo",cost:"Free (SOXX/SPHB)",s:"RED",m:"6-mo factor correlation 0.79 — highest on record; >0.6 marked every major SOX top (2000/04/10/14/17/21). Semis owned as beta, not businesses — the ownership base that exits fastest. Pairs with #159."},
+  {n:"HELOC balance RoC (#150)",dom:"Consumer Credit",lead:"2-4 qtrs",cost:"Free (NY Fed)",s:"AMBER",m:"+11% YoY — sharpest accel since pre-GFC, off the '22 trough: the collateral-extraction leg of the consumer cluster (#72/#74). Level ($440B) still far below the '09 peak ($718B); the RoC is the signal."},
+  {n:"Core-periphery valuation spread (#156)",dom:"Global Contagion",lead:"Variable",cost:"Free",s:"AMBER",m:"KOSPI ~6x fwd — record low — vs US ~22.5x. Contagion gauge now, contrarian rotation later (#24/#134). Caveat: memory-cycle earnings near peak; cheapness partly illusory if semis roll (#117)."},
+  {n:"SPR depletion (#164)",dom:"Energy / Physical",lead:"Structural",cost:"Free (EIA)",s:"AMBER",m:"~320M bbl, -20.7% YoY, 43-yr low, drawdown accelerating. Shock absorber thinnest since 1983 — fattens the energy right tail exactly when backwardation (#131) says scarcity already rules; eventual refill = structural bid."},
   {n:"Baltic Dry Index",dom:"Trade",lead:"3-6 mo",cost:"Free",s:"AMBER",m:"Falling hard while equities at highs led earnings deterioration incl. 2008."},
   {n:"Insurer IG spread underperformance (#139)",dom:"Transmission",lead:"1-2 qtrs",cost:"Free",s:"AMBER",m:"Advance market estimate of private credit marks via the holder, not the asset."},
   {n:"Prime-Cohort Card Delinquency",dom:"Consumer",lead:"2-4 qtrs",cost:"Free",s:"GREY",m:"Prime missing payments = stress climbing the quality ladder."},
@@ -519,7 +529,7 @@ const MACRO=[
   {l:"Economy-wide productivity",v:"~2.5%",s:"GREEN"}],
   note:"If r* rose with productivity, a 5% 10Y is near-neutral, not tight — and CPI canaries over-flag. Ground truth: unit labor costs (#29). Wages lagging productivity = pressure lower than headline."},
  {g:"Fiscal & Term Premium (#28, #116)",rows:[
-  {l:"US deficit / GDP",v:"6–7%",s:"RED"},{l:"10Y term premium (ACM)",v:"Rising",s:"AMBER"},
+  {l:"US deficit / GDP",v:"6–7%",s:"RED"},{l:"Interest expense T12M (#154)",v:"$1.35T record",s:"RED"},{l:"10Y real yield (#154)",v:"2.35% · 2yr high",s:"AMBER"},{l:"Gold/SPX regime break (#160)",v:"SUPER CRE — needs bear to confirm",s:"AMBER"},{l:"Debt vs demographics (#163)",v:"$348T · 2.85× GDP · under-5s shrinking",s:"RED"},{l:"10Y term premium (ACM)",v:"Rising",s:"AMBER"},
   {l:"Yield-move source",v:"Partly fiscal",s:"AMBER"},{l:"Steepener composition (#121)",v:"BEAR",s:"RED"}],
   note:"Yields rising from term premium ≠ from r*. The former tightens conditions without a stronger economy. Decompose every Cat-5 move before acting: r*-side benign, TP-side canary. Secular context (#116): if 2020 was the generational low, >5% becomes normal."},
  {g:"AI Earnings Quality (#30, #47-48)",rows:[
@@ -574,7 +584,7 @@ function Bubble(){
   <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:12}}>
    {[["Reversion distance (#63)","Prior bubbles reverted 63-80%. At ~975, reaching any prior trough requires a larger fall than any prior bubble experienced from its own peak. The outcome distribution is not symmetric.",T.red],
      ["Velocity of ascent (#64)","Cap doubling in 2yrs → 40% crash probability within 2yrs, rising with speed. Disruptors survived the '22 halving then tripled — each recovery lengthens the ultimate reversion.",T.amber],
-     ["How this layer is used (#63)","It calibrates urgency, not timing. Canary weights scale with bubble percentile: the same Group-B flip is worth 2-3× the de-risking response at the 99th percentile vs the 50th.",T.purple]].map(([t,d,c],i)=>(
+     ["How this layer is used (#63)","It calibrates urgency, not timing. Canary weights scale with bubble percentile: the same Group-B flip is worth 2-3× the de-risking response at the 99th percentile vs the 50th.",T.purple],["Liquidity-adjusted (#151)","SPY/M2 at 32.82 — highest ever, above the 2000 peak: prices outrunning even the record M2 reacceleration (#9). Answers the liquidity-justifies-valuations rebuttal with the liquidity-deflated series itself at an all-time extreme.",T.cyan],["Ex-post ERP at generational extremes (#165)","10-yr realized equity-over-bond outperformance ~15%/yr — exceeded only by the 1950s, rhyming with 1929 and 2000. Reversion fuel in the stock-bond PAIR: prior peaks each preceded a decade of bond outperformance or equity stagnation. The mirror of #129.",T.green]].map(([t,d,c],i)=>(
     <Card key={i} accent={c}><div style={{fontSize:12,fontWeight:700,fontFamily:T.sans,color:T.ink,marginBottom:6}}>{t}</div>
      <div style={{fontSize:11,color:T.ink2,lineHeight:1.6,fontFamily:T.body}}>{d}</div></Card>))}
   </div></div>);}
@@ -658,6 +668,7 @@ function Structure(){
    {[["Oracle — existential single-counterparty bet (#45)","$129.5B debt · -$23.7B FCF · $260B unsigned leases · $340B Stargate build for one customer. If OpenAI can't pay, the leverage has no second buyer.","RED"],
      ["CoreWeave — 65% single-customer revenue (#45)","65% of revenue from Microsoft-for-OpenAI. Concentration plus debt = structurally more fragile than any diversified peer at the same leverage.","RED"],
      ["SoftBank — collateral refused (#46)","Banks declined a $6B margin loan against a >$100B paper OpenAI stake. Rule: unfinanceable at any meaningful LTV ⇒ the stated valuation is not the true valuation.","RED"],
+     ["AI-capex second derivative — Soros stage clock (#152)","Prices peak when growth DECELERATES, not when it peaks. GS: AI capex growth 80% → 22% next year — the mechanism that breaks #143 without earnings ever falling. 2027 guidance is set in the Aug-Oct '26 window, converging with #43/#128 into one adjudication quarter.","AMBER"],
      ["Disclosure degradation (#47) · RPO watch (#44)","Zero GAAP AI segment disclosure across Mag-7; run-rate language only. Count run-rate vs GAAP language per season; any RPO renegotiation converts backlog into headline risk.","RED"],
      ["Infra narrative contagion with the lag (#50)","Telecom-1999 structure: power/pipeline infra peaks 6-18mo AFTER tech — early 'safe haven' rotations there can be the second-order drawdown. CEG -30% is a live test of the lag.","AMBER"]].map(([t,d,s],i)=>(
     <Card key={i} style={{borderLeft:`3px solid ${STATUS[s].t}`}}>
@@ -960,9 +971,11 @@ function Execution(){
     <Card accent={T.red}><Eyebrow color={T.red}>Distance-to-cascade (#146)</Eyebrow>
      <div style={{fontSize:30,fontFamily:T.sans,fontWeight:700,color:T.red}}>−7% to −9%</div>
      <div style={{fontSize:11,color:T.ink2,fontFamily:T.body,lineHeight:1.6,marginTop:4}}>
-      The decline that flips <b>every</b> monthly trend model to Cash simultaneously. The cascade stack: SpotGamma's ~10% correction forecast · NDX dealers short gamma (amplifying) · buyback blackout (bid absent) · then the systematic sellers arrive at −7-9%. The variance column is the measured distance between "calm" and "everyone acts at once."</div></Card>
+      The decline that flips <b>every</b> monthly trend model to Cash simultaneously. The cascade stack: SpotGamma's ~10% forecast · NDX short gamma · leveraged-ETF close rebalancing, ~$95B AUM (#162) · buyback blackout · then systematic sellers at −7-9%. The variance column is the measured distance between "calm" and "everyone acts at once."</div></Card>
     <Card><Eyebrow>All-assets breadth (#148)</Eyebrow>
      <div style={{fontSize:11.5,color:T.ink,fontFamily:T.body,lineHeight:1.6}}><b>4/5 above trend</b> on the 10-month (5/5 on the 12-month), bonds marginal, international more extended than the US — the everything-up-except-bonds shape: one macro trade expressed across asset classes. Late-cycle configuration.</div></Card>
+    <Card accent={T.amber}><Eyebrow color={T.amber}>Trend-alignment crowding (#155)</Eyebrow>
+     <div style={{fontSize:11.5,color:T.ink,fontFamily:T.body,lineHeight:1.6}}><b>+0.49</b> position-trend correlation vs <b>+0.21</b> historical average — every tracked equity market (JP/EU/UK/US/CA/AU) long an uptrend simultaneously. The positioning fuel for #146: at the −7-9% flip, the systematic complex sells synchronized, not diversified.</div></Card>
    </div>
   </div>
   <Card><Eyebrow>Ivy 5-asset monthly trend table — mock, calibrated to reported values (#146-148)</Eyebrow>
@@ -1022,7 +1035,7 @@ export default function App(){
   <div style={{width:216,flexShrink:0,background:T.panel,borderRight:`1px solid ${T.border}`,display:"flex",flexDirection:"column"}}>
    <div style={{padding:"18px 16px 14px",borderBottom:`1px solid ${T.border}`}}>
     <div style={{fontSize:14.5,fontWeight:700,fontFamily:T.sans,color:T.ink}}>INSTABILITY</div>
-    <div style={{fontSize:9,color:T.ink3,fontFamily:T.mono,letterSpacing:".12em"}}>WATCH · v7 · FABLE · 12 JUL 26</div>
+    <div style={{fontSize:9,color:T.ink3,fontFamily:T.mono,letterSpacing:".12em"}}>WATCH · v7.4 · FABLE · 15 JUL 26</div>
     <div style={{marginTop:9,display:"flex",gap:5,flexWrap:"wrap"}}>
      <span style={{fontSize:8.5,background:T.redDim,border:`1px solid ${T.red}`,color:T.red,borderRadius:3,padding:"2px 6px",fontFamily:T.mono,fontWeight:700}}>{red} RED</span>
      <span style={{fontSize:8.5,background:T.amberDim,border:`1px solid ${T.amber}`,color:T.amber,borderRadius:3,padding:"2px 6px",fontFamily:T.mono,fontWeight:700}}>B SPLIT</span>
@@ -1035,7 +1048,7 @@ export default function App(){
       <span style={{fontSize:13,color:page===n.id?T.blue:T.ink3}}>{n.i}</span>{n.l}</button>))}
    </nav>
    <div style={{padding:"10px 14px",borderTop:`1px solid ${T.border}`,fontSize:9,color:T.ink3,fontFamily:T.mono,lineHeight:1.6}}>
-    ~126 of 148 master ideas<br/>portrayed · mock data,<br/>calibrated to reported values.<br/>Not investment advice.
+    ~145 of 165 master ideas<br/>portrayed · mock data,<br/>calibrated to reported values.<br/>Not investment advice.
    </div>
   </div>
   <div style={{flex:1,display:"flex",flexDirection:"column",overflow:"hidden"}}>
